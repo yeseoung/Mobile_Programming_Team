@@ -46,8 +46,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/timeMedicine"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:layout_below="@id/toolbar"
         android:overScrollMode="always"
-        android:scrollIndicators="bottom" />
+        android:scrollIndicators="bottom"
+        tools:listitem="@layout/item" />
 </RelativeLayout>

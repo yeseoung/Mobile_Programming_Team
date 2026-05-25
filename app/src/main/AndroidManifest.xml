@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DrugHelper">
         <activity
+            android:name=".StatsActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".RecordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddMedicineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false"
             android:label="@string/title_activity_login" />

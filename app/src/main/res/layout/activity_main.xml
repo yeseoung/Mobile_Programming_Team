@@ -52,6 +52,15 @@
         android:layout_toRightOf="@id/create"
         android:text="약 등록" />
 
+    <Button
+        android:id="@+id/로그아웃"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="500dp"
+        android:text="logout" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/timeMedicine"
         android:layout_width="match_parent"

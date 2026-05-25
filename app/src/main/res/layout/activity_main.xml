@@ -53,7 +53,7 @@
         android:text="약 등록" />
 
     <Button
-        android:id="@+id/로그아웃"
+        android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"

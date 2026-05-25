@@ -38,8 +38,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="580dp"
+        android:backgroundTint="#2E7D32"
+        android:shadowColor="@color/white"
         android:text="통계 및 보고서 생성" />
 
     <Button
@@ -47,9 +48,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="580dp"
         android:layout_toRightOf="@id/create"
+        android:backgroundTint="#2E7D32"
         android:text="약 등록" />
 
     <Button
@@ -57,8 +58,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="580dp"
+        android:layout_toRightOf="@id/button"
+        android:backgroundTint="#2E7D32"
         android:text="logout" />
 
     <androidx.recyclerview.widget.RecyclerView

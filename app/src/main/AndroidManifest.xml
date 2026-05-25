@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DrugHelper">
         <activity
+            android:name=".SiginInActivity"
+            android:exported="false" />
+        <activity
             android:name=".StatsActivity2"
             android:exported="false" />
         <activity

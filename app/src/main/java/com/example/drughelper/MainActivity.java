@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
         for (int i=1; i <= 5; i++) { data[i-1] = "약 이름"+i; }
 
         button1 = findViewById(R.id.create);
-        button2 = findViewById(R.id.button);
-        button3 = findViewById(R.id.logout);
+        button2 = findViewById(R.id.logout2);
+        button3 = findViewById(R.id.logout2);
 
         RecyclerView recyclerView = findViewById(R.id.timeMedicine);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -68,12 +68,12 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
             startActivity(intent);
         }
 
-        else if (id == R.id.button) {
+        else if (id == R.id.fab) {
             Intent intent = new Intent(MainActivity.this, AddMedicineActivity.class);
             startActivity(intent);
         }
 
-        else if (id == R.id.logout) {
+        else if (id == R.id.logout2) {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 

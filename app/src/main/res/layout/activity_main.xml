@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C5E1A5"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -12,7 +13,6 @@
         android:id="@+id/toolbar"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme">
 
@@ -33,39 +33,6 @@
 
     </FrameLayout>
 
-    <Button
-        android:id="@+id/create"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
-        android:layout_marginTop="580dp"
-        android:backgroundTint="#2E7D32"
-        android:shadowColor="@color/white"
-        android:onClick="onClick"
-        android:text="통계 및 보고서 생성" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
-        android:layout_marginTop="580dp"
-        android:layout_toRightOf="@id/create"
-        android:backgroundTint="#2E7D32"
-        android:onClick="onClick"
-        android:text="약 등록" />
-
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
-        android:layout_marginTop="580dp"
-        android:layout_toRightOf="@id/button"
-        android:backgroundTint="#2E7D32"
-        android:onClick="onClick"
-        android:text="logout" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/timeMedicine"
         android:layout_width="match_parent"
@@ -74,4 +41,58 @@
         android:overScrollMode="always"
         android:scrollIndicators="bottom"
         tools:listitem="@layout/item" />
+
+    <RelativeLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="2dp"
+        android:backgroundTint="#4CAF50">
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="#4CAF50"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/record"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_toStartOf="@id/fab"
+            android:backgroundTint="#4CAF50"
+            android:text="record" />
+
+        <Button
+            android:id="@+id/statics"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="false"
+            android:layout_toEndOf="@id/fab"
+            android:backgroundTint="#4CAF50"
+            android:text="통계" />
+
+        <View
+            android:id="@+id/fab"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dp"
+            android:background="#E0D0FF" />
+
+        <Button
+            android:id="@+id/logout2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="false"
+            android:layout_toStartOf="@id/fab"
+            android:layout_toEndOf="@id/button4"
+            android:backgroundTint="#4CAF50"
+            android:onClick="onClick"
+            android:text="logout" />
+    </RelativeLayout>
+
 </RelativeLayout>

@@ -48,14 +48,15 @@
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="2dp"
-        android:backgroundTint="#4CAF50">
+        android:background="#4CAF50">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/home"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="#4CAF50"
-            android:text="Button" />
+            android:onClick="onClick"
+            android:text="home" />
 
         <Button
             android:id="@+id/record"
@@ -64,6 +65,7 @@
             android:layout_alignParentEnd="true"
             android:layout_toStartOf="@id/fab"
             android:backgroundTint="#4CAF50"
+            android:onClick="onClick"
             android:text="record" />
 
         <Button
@@ -81,7 +83,10 @@
             android:layout_height="60dp"
             android:layout_centerInParent="true"
             android:layout_marginBottom="10dp"
-            android:background="#E0D0FF" />
+            android:background="#E0D0FF"
+            android:onClick="onClick"
+            android:contentDescription="약 추가하기 버튼"
+            />
 
         <Button
             android:id="@+id/logout2"
@@ -89,7 +94,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentStart="false"
             android:layout_toStartOf="@id/fab"
-            android:layout_toEndOf="@id/button4"
+            android:layout_toEndOf="@id/home"
             android:backgroundTint="#4CAF50"
             android:onClick="onClick"
             android:text="logout" />

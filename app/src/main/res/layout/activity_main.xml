@@ -41,6 +41,7 @@
         android:layout_marginTop="580dp"
         android:backgroundTint="#2E7D32"
         android:shadowColor="@color/white"
+        android:onClick="onClick"
         android:text="통계 및 보고서 생성" />
 
     <Button
@@ -51,6 +52,7 @@
         android:layout_marginTop="580dp"
         android:layout_toRightOf="@id/create"
         android:backgroundTint="#2E7D32"
+        android:onClick="onClick"
         android:text="약 등록" />
 
     <Button
@@ -61,6 +63,7 @@
         android:layout_marginTop="580dp"
         android:layout_toRightOf="@id/button"
         android:backgroundTint="#2E7D32"
+        android:onClick="onClick"
         android:text="logout" />
 
     <androidx.recyclerview.widget.RecyclerView

@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
         String[] data = new String[5];
         for (int i=1; i <= 5; i++) { data[i-1] = "약 이름"+i; }
 
+        button1 = findViewById(R.id.create);
+        button2 = findViewById(R.id.button);
+        button3 = findViewById(R.id.logout);
+
         RecyclerView recyclerView = findViewById(R.id.timeMedicine);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MyAdapter(this,data);
@@ -50,18 +54,27 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
     public void onClick(View view) {
         int id = view.getId();
 
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.onClick(v); // 기존에 만드신 onClick 메서드 호출
+            }
+        };
+        button1.setOnClickListener(listener);
+        button2.setOnClickListener(listener);
+        button3.setOnClickListener(listener);
         if (id == R.id.create) {
-            Intent intent = new Intent(view.getContext(), StatsActivity2.class);
+            Intent intent = new Intent(MainActivity.this, StatsActivity2.class);
             startActivity(intent);
         }
 
         else if (id == R.id.button) {
-            Intent intent = new Intent(view.getContext(), AddMedicineActivity.class);
+            Intent intent = new Intent(MainActivity.this, AddMedicineActivity.class);
             startActivity(intent);
         }
 
         else if (id == R.id.logout) {
-            Intent intent = new Intent(view.getContext(), LoginActivity.class);
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
             startActivity(intent);

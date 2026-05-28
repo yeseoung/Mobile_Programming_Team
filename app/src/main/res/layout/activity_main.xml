@@ -5,9 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C5E1A5"
+    android:background="#C8E6C9"
     android:orientation="vertical"
     tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp" />
 
     <FrameLayout
         android:id="@+id/toolbar"
@@ -41,7 +46,17 @@
         android:layout_below="@id/toolbar"
         android:overScrollMode="always"
         android:scrollIndicators="bottom"
-        tools:listitem="@layout/item" />
+        tools:listitem="@layout/item" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@id/bottom_bar"
+        android:background="#cccccc"
+        />
 
     <RelativeLayout
         android:id="@+id/bottom_bar"
@@ -49,27 +64,32 @@
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="2dp"
-        android:background="#4CAF50">
+        android:background="#C8E6C9"
+        android:backgroundTint="@color/cardview_shadow_end_color">
 
         <Button
             android:id="@+id/home"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:backgroundTint="#4CAF50"
+            android:backgroundTint="#C8E6C9"
+            android:isScrollContainer="true"
             android:onClick="onClick"
             android:text="home"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:icon="@drawable/KakaoTalk_20260526_200624212_07" />
 
         <Button
-            android:id="@+id/record"
+            android:id="@+id/setting"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_toStartOf="@id/fab"
-            android:backgroundTint="#4CAF50"
+            android:backgroundTint="#C8E6C9"
             android:onClick="onClick"
             android:text="setting"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:icon="@drawable/KakaoTalk_20260526_200624212_02"
+            app:iconTint="#A9A0A0" />
 
         <Button
             android:id="@+id/statics"
@@ -77,7 +97,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentEnd="false"
             android:layout_toEndOf="@id/fab"
-            android:backgroundTint="#4CAF50"
+            android:backgroundTint="#C8E6C9"
             android:text="통계" />
 
         <View
@@ -87,9 +107,8 @@
             android:layout_centerInParent="true"
             android:layout_marginBottom="10dp"
             android:background="#E0D0FF"
-            android:onClick="onClick"
             android:contentDescription="약 추가하기 버튼"
-            />
+            android:onClick="onClick" />
 
         <Button
             android:id="@+id/logout2"
@@ -98,7 +117,7 @@
             android:layout_alignParentStart="false"
             android:layout_toStartOf="@id/fab"
             android:layout_toEndOf="@id/home"
-            android:backgroundTint="#4CAF50"
+            android:backgroundTint="#C8E6C9"
             android:onClick="onClick"
             android:text="logout"
             android:textStyle="bold" />

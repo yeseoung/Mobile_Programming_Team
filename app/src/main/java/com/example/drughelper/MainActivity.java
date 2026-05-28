@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
         String[] data = new String[5];
         for (int i=1; i <= 5; i++) { data[i-1] = "약 이름"+i; }
 
-        button1 = findViewById(R.id.record);
+        button1 = findViewById(R.id.setting);
         button2 = findViewById(R.id.logout2);
         button3 = findViewById(R.id.statics);
         button4 = findViewById(R.id.home);
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
 
             startActivity(intent);
         }
-        else if (id == R.id.record) {
+        else if (id == R.id.setting) {
             Intent intent = new Intent(MainActivity.this, RecordActivity.class);
             startActivity(intent);
         }

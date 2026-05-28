@@ -50,77 +50,93 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_above="@id/bottom_bar"
-        android:background="#cccccc"
-        />
-
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="2dp"
-        android:background="#C8E6C9"
-        android:backgroundTint="@color/cardview_shadow_end_color">
+        android:background="#A5D6A7"
+        android:elevation="16dp"
+        android:orientation="horizontal"
+        android:weightSum="5">
 
-        <Button
+        <TextView
             android:id="@+id/home"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:backgroundTint="#C8E6C9"
-            android:isScrollContainer="true"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
             android:onClick="onClick"
-            android:text="home"
-            android:textStyle="bold"
-            app:icon="@drawable/KakaoTalk_20260526_200624212_07" />
+            android:text="홈"
+            android:textColor="#56B77A"
+            android:textSize="11sp"
+            app:drawableTopCompat="@drawable/icon8" />
 
-        <Button
-            android:id="@+id/setting"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/logout2"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_toStartOf="@id/fab"
-            android:backgroundTint="#C8E6C9"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
             android:onClick="onClick"
-            android:text="setting"
-            android:textStyle="bold"
-            app:icon="@drawable/KakaoTalk_20260526_200624212_02"
-            app:iconTint="#A9A0A0" />
-
-        <Button
-            android:id="@+id/statics"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="false"
-            android:layout_toEndOf="@id/fab"
-            android:backgroundTint="#C8E6C9"
-            android:text="통계" />
+            android:text="로그아웃"
+            android:textColor="#757575"
+            android:textSize="11sp"
+            app:drawableTopCompat="@drawable/icon3" />
 
         <View
-            android:id="@+id/fab"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_centerInParent="true"
-            android:layout_marginBottom="10dp"
-            android:background="#E0D0FF"
-            android:contentDescription="약 추가하기 버튼"
-            android:onClick="onClick" />
-
-        <Button
-            android:id="@+id/logout2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_alignParentStart="false"
-            android:layout_toStartOf="@id/fab"
-            android:layout_toEndOf="@id/home"
-            android:backgroundTint="#C8E6C9"
-            android:onClick="onClick"
-            android:text="logout"
-            android:textStyle="bold" />
-    </RelativeLayout>
+            android:layout_weight="1" />
 
+        <TextView
+            android:id="@+id/statics"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="통계"
+            android:textColor="#757575"
+            android:textSize="11sp"
+            app:drawableTopCompat="@drawable/icon5" />
+
+        <TextView
+            android:id="@+id/setting"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="설정"
+            android:textColor="#757575"
+            android:textSize="11sp"
+            app:drawableTopCompat="@drawable/icon3" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fab"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/bottom_bar"
+        android:layout_marginBottom="-32dp"
+        android:background="@drawable/circle_green"
+        android:translationZ="20dp"
+        android:elevation="16dp"
+        android:stateListAnimator="@null"
+        android:onClick="onClick"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:gravity="center" />
 </RelativeLayout>

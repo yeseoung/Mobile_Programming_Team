@@ -25,6 +25,8 @@
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="12dp"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/medicine" />
 
@@ -46,7 +48,7 @@
         android:layout_below="@id/toolbar"
         android:overScrollMode="always"
         android:scrollIndicators="bottom"
-        tools:listitem="@layout/item" >
+        tools:listitem="@layout/item">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -60,66 +62,119 @@
         android:orientation="horizontal"
         android:weightSum="5">
 
-        <TextView
-            android:id="@+id/home"
+        <LinearLayout
+            android:id="@+id/home_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:clickable="true"
-            android:focusable="true"
+            android:orientation="vertical"
             android:gravity="center"
-            android:onClick="onClick"
-            android:text="홈"
-            android:textColor="#56B77A"
-            android:textSize="11sp"
-            app:drawableTopCompat="@drawable/icon8" />
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onClick">
 
-        <TextView
-            android:id="@+id/logout2"
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:srcCompat="@drawable/icon8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="홈"
+                android:textColor="#56B77A"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/logout_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
             android:clickable="true"
             android:focusable="true"
+<<<<<<< HEAD
             android:gravity="center"
             android:onClick="onClick"
             android:text="로그아웃"
             android:textColor="#757575"
             android:textSize="11sp"
             app:drawableTopCompat="@drawable/log-out" />
+=======
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:srcCompat="@drawable/baseline_exit_to_app_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="로그아웃"
+                android:textColor="#757575"
+                android:textSize="11sp" />
+        </LinearLayout>
+>>>>>>> kyumin9.4.1
 
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <TextView
-            android:id="@+id/statics"
+        <LinearLayout
+            android:id="@+id/statics_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
             android:clickable="true"
             android:focusable="true"
-            android:gravity="center"
-            android:onClick="onClick"
-            android:text="통계"
-            android:textColor="#757575"
-            android:textSize="11sp"
-            app:drawableTopCompat="@drawable/icon5" />
+            android:onClick="onClick">
 
-        <TextView
-            android:id="@+id/setting"
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:srcCompat="@drawable/icon5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="통계"
+                android:textColor="#757575"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/setting_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
             android:clickable="true"
             android:focusable="true"
-            android:gravity="center"
-            android:onClick="onClick"
-            android:text="설정"
-            android:textColor="#757575"
-            android:textSize="11sp"
-            app:drawableTopCompat="@drawable/icon3" />
+            android:onClick="onClick">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:srcCompat="@drawable/icon3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="설정"
+                android:textColor="#757575"
+                android:textSize="11sp" />
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -127,16 +182,16 @@
         android:id="@+id/fab"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_centerHorizontal="true"
         android:layout_above="@id/bottom_bar"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="-32dp"
         android:background="@drawable/circle_green"
-        android:translationZ="20dp"
         android:elevation="16dp"
-        android:stateListAnimator="@null"
+        android:gravity="center"
         android:onClick="onClick"
+        android:stateListAnimator="@null"
         android:text="+"
         android:textColor="#FFFFFF"
         android:textSize="32sp"
-        android:gravity="center" />
+        android:translationZ="20dp" />
 </RelativeLayout>

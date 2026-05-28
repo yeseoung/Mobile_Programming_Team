@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
 import com.example.drughelper.ui.login.LoginActivity;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,10 +20,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity implements MyAdapter.ItemClickListener {
     MyAdapter adapter;
-    private Button button1;
-    private Button button2;
-    private Button button3;
-    private Button button4;
+    private TextView textView;
+    private TextView textView2;
+    private TextView textView3;
+    private TextView textView4;
     private View viewFab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +33,10 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
         String[] data = new String[5];
         for (int i=1; i <= 5; i++) { data[i-1] = "약 이름"+i; }
 
-        button1 = findViewById(R.id.setting);
-        button2 = findViewById(R.id.logout2);
-        button3 = findViewById(R.id.statics);
-        button4 = findViewById(R.id.home);
+        textView = findViewById(R.id.setting);
+        textView2 = findViewById(R.id.logout2);
+        textView3 = findViewById(R.id.statics);
+        textView4 = findViewById(R.id.home);
         viewFab = findViewById(R.id.fab);
         RecyclerView recyclerView = findViewById(R.id.timeMedicine);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -63,10 +65,10 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
                 MainActivity.this.onClick(v); // 기존에 만드신 onClick 메서드 호출
             }
         };
-        button1.setOnClickListener(listener);
-        button2.setOnClickListener(listener);
-        button3.setOnClickListener(listener);
-        button4.setOnClickListener(listener);
+        textView.setOnClickListener(listener);
+        textView2.setOnClickListener(listener);
+        textView3.setOnClickListener(listener);
+        textView4.setOnClickListener(listener);
         viewFab.setOnClickListener(listener);
         if (id == R.id.statics) {
             Intent intent = new Intent(MainActivity.this, StatsActivity2.class);

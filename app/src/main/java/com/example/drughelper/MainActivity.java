@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
     private ImageButton imageButton4;
     private ImageButton imageButton5;
     private View viewFab;
+    private static final String SERVICE_KEY = "a36646983d6f22d35479f4c6f89b15aa734627b67d45ad3bd7f0077a4479db1a";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
         imageButton4.setOnClickListener(listener);
         imageButton5.setOnClickListener(listener);
         viewFab.setOnClickListener(listener);
-        if (id == R.id.statics_layout) {
+        if (id == R.id.statics_image) {
             Intent intent = new Intent(MainActivity.this, StatsActivity2.class);
             startActivity(intent);
         }

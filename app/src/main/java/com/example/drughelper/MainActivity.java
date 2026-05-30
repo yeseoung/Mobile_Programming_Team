@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
             startActivity(intent);
         }
         else if (id == R.id.setting_layout) {
-            Intent intent = new Intent(MainActivity.this, RecordActivity.class);
+            Intent intent = new Intent(MainActivity.this, SettingActivity.class);
             startActivity(intent);
         }
         else if (id == R.id.record) {

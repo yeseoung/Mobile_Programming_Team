@@ -31,9 +31,32 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/notEat"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:icon="@drawable/warning"
+            android:text="복용 불가" />
+
+        <ImageView
+            android:id="@+id/warn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/warning" />
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/drugImage"
-        android:layout_width="200dp"
+        android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_gravity="right"
         android:scaleType="centerCrop"

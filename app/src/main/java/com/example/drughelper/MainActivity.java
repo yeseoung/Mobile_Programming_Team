@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
                 medicineList.clear();
                 for (String query : targetQueries) {
                     String jsonResult = searchMedicineList(query);
+                    String durResult = searchDurInfo(query);
 
                     Log.d("DrugHelperAPI", query + " 결과값: " + jsonResult);
                     if (jsonResult != null) {
@@ -99,8 +100,13 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
                                         JSONObject item = items.getJSONObject(i);
                                         String name = item.optString("itemName", "알 수 없는 약");
                                         String itemImage = item.optString("itemImage", "").replaceAll("<[^>]*>", "");
+                                        String durNotice = "특이사항 없음";
+                                        if (durResult != null) {
+                                            durNotice = parseDurNotice(durResult, name);
+                                        }
 
-                                        medicineList.add(new Medicine(name, itemImage));
+                                        // 확장된 생성자로 리스트에 추가
+                                        medicineList.add(new Medicine(name, itemImage, durNotice));
                                     }
                                 }
                             }
@@ -197,6 +203,59 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ItemCli
             if (urlConnection != null) { urlConnection.disconnect(); }
         }
         return null;
+    }
+
+    private String searchDurInfo(String medName) {
+        HttpURLConnection urlConnection = null;
+        BufferedReader reader = null;
+        try {
+            String encodedMedName = URLEncoder.encode(medName, "UTF-8");
+            // ✨ 안전한 지상파 HTTPS 통신 주소 사용
+            StringBuilder urlBuilder = new StringBuilder("https://apis.data.go.kr/1471057/DURPrbtyInfoService03/getUsgNtsBfe_DUR");
+            urlBuilder.append("?serviceKey=").append(SERVICE_KEY);
+            urlBuilder.append("&itemName=").append(encodedMedName);
+            urlBuilder.append("&type=json");
+            urlBuilder.append("&numOfRows=1");
+            urlBuilder.append("&pageNo=1");
+
+            URL url = new URL(urlBuilder.toString());
+            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestMethod("GET");
+
+            if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
+                StringBuilder result = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    result.append(line);
+                }
+                return result.toString();
+            }
+        } catch (Exception e) {
+            Log.e("DUR_API_VER", "DUR 통신 실패: " + e.getMessage());
+        } finally {
+            if (reader != null) { try { reader.close(); } catch (Exception ignored) {} }
+            if (urlConnection != null) { urlConnection.disconnect(); }
+        }
+        return null;
+    }
+    // DUR JSON에서 필요한 주의문구(PROHBT_CONTENT 등 API 가이드 참조)를 추출하는 유틸 메서드
+    private String parseDurNotice(String jsonResult, String medicineName) {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonResult);
+            JSONObject body = jsonObject.optJSONObject("body");
+            if (body != null && body.optInt("totalCount", 0) > 0) {
+                JSONArray items = body.getJSONArray("items");
+                JSONObject item = items.getJSONObject(0);
+
+                // API 제공 항목명에 따라 다른 변수명(예: PROHBT_CONTENT, TYPE_NAME 등)일 수 있습니다.
+                // 공공데이터포털 명세서 스펙상의 금기내용 필드를 매핑하세요.
+                return item.optString("PROHBT_CONTENT", "병용금기 및 주의사항 정보를 확인하세요.");
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return "확인된 DUR 정보 없음";
     }
     @Override
     public void onItemClick(View view, int position) {

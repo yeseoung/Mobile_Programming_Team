@@ -3,6 +3,7 @@ package com.example.drughelper;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<Medicine> medicineList;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
+    TextView warn;
     private final ExecutorService executor = Executors.newFixedThreadPool(4);
 
     // ✨ 생성자 교정: 첫 번째 인자로 Context를 받아 mInflater를 안전하게 초기화합니다.
@@ -46,7 +48,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         // 알약 이름 세팅
         holder.drugName.setText(medicine.getItemName());
-
+        holder.notEat.setText(medicine.getDurNotice());
+        if(!medicine.getDurNotice().equals("특이사항 없음")) {
+            holder.notEat.setTextColor(Color.RED); // 금기 사항이 있다면 빨간색 강조
+            holder.warn.setVisibility(View.VISIBLE);
+        } else {
+            holder.notEat.setTextColor(Color.GRAY);
+            holder.warn.setVisibility(View.GONE);
+        }
         // 기본 이미지 먼저 세팅 (다운로드 전 공백 방지)
         holder.drugImage.setImageResource(R.drawable.medicine);
 
@@ -106,12 +115,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView drugName;
         ImageView drugImage;
-
+        ImageView warn;
+        TextView notEat;
         ViewHolder(View itemView) {
             super(itemView);
             // ✨ 뷰 매칭 (안 쓰는 myTextView와 불필요한 mData 매핑 코드는 정리했습니다)
             drugName = itemView.findViewById(R.id.info_text);
             drugImage = itemView.findViewById(R.id.drugImage);
+            warn = itemView.findViewById(R.id.warn);
+            notEat = itemView.findViewById(R.id.notEat);
             itemView.setOnClickListener(this);
         }
 

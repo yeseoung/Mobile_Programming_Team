@@ -6,6 +6,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -26,6 +27,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.drughelper.MainActivity;
 import com.example.drughelper.R;
 import com.example.drughelper.ui.login.LoginViewModel;
 import com.example.drughelper.ui.login.LoginViewModelFactory;
@@ -85,6 +87,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 if (loginResult.getSuccess() != null) {
                     updateUiWithUser(loginResult.getSuccess());
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
                 setResult(Activity.RESULT_OK);
 

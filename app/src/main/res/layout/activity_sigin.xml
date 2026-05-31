@@ -2,10 +2,51 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/signin"
+    android:id="@+id/signin2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C8E6C9"
     android:orientation="vertical"
     tools:context=".SiginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/idName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="200dp"
+            android:ems="10"
+            android:hint='"아이디를 입력하세요"'
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/Password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="비밀번호를 입력하시오."
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/Password2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="비밀번호 다시 입력하시오."
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/signin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2E7D32"
+            android:text="회원가입"
+            android:textColorLink="#4CAF50" />
+
+    </LinearLayout>
 
 </LinearLayout>

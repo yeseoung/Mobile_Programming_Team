@@ -48,6 +48,12 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    // 1. 네트워크 통신을 위한 Retrofit2 및 Gson 변환기
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+
+    // 2. 로그인 토큰 암호화 저장을 위한 Security Crypto
+    implementation("androidx.security:security-crypto:1.1.0-alpha06")
     implementation(libs.recyclerview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
